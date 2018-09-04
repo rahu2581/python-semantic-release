@@ -2,7 +2,7 @@ from invoke import run
 from twine.commands import upload as twine_upload
 
 
-def upload_to_pypi(dists='sdist bdist_wheel', username=None, password=None, skip_existing=False):
+def upload_to_pypi(dists='sdist bdist_wheel', username=None, password=None, skip_existing=False, repository_url=None):
     """
     Creates the wheel and uploads to pypi with twine.
 
@@ -22,6 +22,6 @@ def upload_to_pypi(dists='sdist bdist_wheel', username=None, password=None, skip
         skip_existing=skip_existing,
         cert=None,
         client_cert=None,
-        repository_url=None
+        repository_url=repository_url
     )
     run('rm -rf build dist')

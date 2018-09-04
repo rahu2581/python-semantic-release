@@ -154,6 +154,7 @@ def publish(**kwargs):
                 password=os.environ.get('PYPI_PASSWORD'),
                 # We are retrying, so we don't want errors for files that are already on PyPI.
                 skip_existing=retry,
+                repository_url=os.environ.get('PYPI_URL', None),
             )
 
         if check_token():
